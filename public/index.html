@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>3D Model Animator</title>
+		<link rel="stylesheet" href="/main.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+        <script type="importmap">
+            {
+              "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/",
+                "gif.js.optimized": "https://cdn.jsdelivr.net/npm/gif.js.optimized@latest/dist/gif.js",
+                "three/examples/jsm/utils/BufferGeometryUtils.js": "https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/utils/BufferGeometryUtils.js"
+              }
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.min.js"></script>
+    </head>
+	<body>
+        <div id="blurrer" style="display: none;"></div>
+        <div id="display-div">
+            <p>Drop 3D Model (.glb) Here</p>
+        </div>
+        
+        <div class="control-container">
+            <div class="control-group">
+                <label for="fps-range">FPS</label>
+                <input type="range" id="fps-range" value="60" min="1" max="300" step="1" oninput="document.getElementById('fps-value').innerText = this.value">
+                <span id="fps-value">60</span>
+            </div>
+            
+            <div class="control-group">
+                <label for="quality-range">Quality</label>
+                <input type="range" id="quality-range" value="10" min="1" max="500" oninput="document.getElementById('quality-value').innerText = this.value">
+                <span id="quality-value">10</span>
+            </div>
+            
+            <button onclick="captureGif()">Capture GIF</button>
+        </div>
+        
+        <div id="gif-container" style="display: none;"></div>
+		<script type="module" src="/main.js"></script>
+	</body>
+</html>
